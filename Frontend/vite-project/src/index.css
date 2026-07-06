@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .glass-panel {
+    background: rgba(26, 26, 26, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .input-glass {
+    background: #1a1a1a;
+    border: 1px solid #3d4a41;
+    transition: all 0.2s ease;
+  }
+  .input-glass:focus-within {
+    border-color: #3ecf8e;
+    box-shadow: 0 0 0 1px rgba(62, 207, 142, 0.2);
+  }
+  
+  /* Custom Tooltip */
+  .tooltip-custom {
+    position: relative;
+    display: inline-block;
+  }
+  .tooltip-custom .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: #2e2e2e;
+    color: #3ecf8e;
+    text-align: center;
+    border-radius: 4px;
+    padding: 4px 8px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -40px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    border: 1px solid #3d4a41;
+  }
+  .tooltip-custom .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2e2e2e transparent transparent transparent;
+  }
+  .tooltip-custom.show-tooltip .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+}
